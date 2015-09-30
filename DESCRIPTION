@@ -1,0 +1,9 @@
+Package: prepotol
+Type: Package
+Title: Prepares trees for uploading to Open Tree of Life
+Version: 0.1
+Date: 2015-09-30
+Author: Brian O'Meara
+Maintainer: Brian O'Meara <omeara.brian@gmail.com>
+Description: This will take a tree and prepare it for uploading to OpenTree's database: resolve names to match OpenTree's taxonomy, remove duplicate names, and perhaps pass it to monophy to help validate the taxonomy.
+License: GPL 2.0

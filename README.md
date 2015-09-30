@@ -1,2 +1,1 @@
-# prepotol
-Prepare a tree for uploading to OpenTree
+This package prepares a tree in R in phylo format for uploading to OpenTree.
