@@ -1,64 +1,33 @@
 \name{KillAllDuplicates}
 \alias{KillAllDuplicates}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+KillAllDuplicates
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Remove duplicate taxa from the tree
 }
 \usage{
 KillAllDuplicates(phy)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{phy}{
-%%     ~~Describe \code{phy} here~~
+a phylo object
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
-}
+This finds any duplicate taxa and deletes ALL of them 
+(so if a taxon appears on a tree twice, both instances are removed).}
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
+returns a pruned phylo object
 }
 \author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
+Brian O'Meara
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (phy) 
-{
-    taxon.counts <- sort(table(phy$tip.label))
-    if (length(which(taxon.counts > 1)) > 0) {
-        taxa.to.kill <- names(taxon.counts[which(taxon.counts > 
-            1)])
-        phy <- drop.tip(phy, taxa.to.kill)
-    }
-    return(phy)
-  }
+phy <- read.tree(text="(((a,b),c),(d,(e,a)));")
+sort(table(phy$tip.label), decreasing=TRUE)
+phy.pruned <- KillAllDuplicates(phy)
+sort(table(phy.pruned$tip.label), decreasing=TRUE)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ pruning }
