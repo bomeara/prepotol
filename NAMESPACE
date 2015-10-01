@@ -1,4 +1,6 @@
-export(KillAllDuplicates, ReplaceNamesUsingOToL)
+export(KillAllDuplicates, ReplaceNamesUsingOToL, PruneWithMonophy, CompletelyProcess)
 import(ape)
 importFrom(rotl, tnrs_match_names)
+importFrom(MonoPhy, AssessMonophyly, GetIntruderTips, GetOutlierTips)
+
 
